@@ -1,30 +1,27 @@
-import CardContainer from "./CardContainer"
-import MovieCard from "../components/MovieCard"
-import movies from "../data/movies.json"
+import { useEffect, useState } from "react";
+import Carroussel from "../components/Carrousel";
+
+
+
 export default function Home(){
-    console.log(movies)
+    const [movies, setMovies] = useState([])
+    useEffect(() => {
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=a6ef6052118503f3b99607d5a2f10ad1&language=pt-br')
+        .then(data => data.json())
+        .then(res => setMovies(res.results))
+        .catch(error => console.log(error))
+        .finally()
+    }, [])
+
     return(
         <>
-            <CardContainer titulo="Filmes antigos">
-                {
-                    movies
-                    .filter(filme => (filme.ano_lancamento<2000))
-                    .map(filmes => (
-                        <MovieCard key={filmes.id} {...filmes}></MovieCard>
-                        
-                    ))
-                }
-            </CardContainer>
-            <CardContainer titulo="Filmes mais avaliados">
-                {
-                    movies
-                    .filter(filme => (filme.avaliacao > 9))
-                    .map(filmes => (
-                        <MovieCard key={filmes.id} {...filmes}></MovieCard>
-                        
-                    ))
-                }
-            </CardContainer>
+            <div>
+                <h1>Os queridinhos do momento: </h1>
+                <Carroussel movies={movies} ></Carroussel>
+            </div>
+
+
+            
         </>
     )
 }

@@ -8,7 +8,7 @@ export default function MovieListPage(){
 
     //useEffect controla algo quue você quiser
     useEffect(() => {
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=7c572a9f5b3ba776080330d23bb76e1e&language=pt-br')
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=a6ef6052118503f3b99607d5a2f10ad1&language=pt-br')
         .then(data => data.json())  // A promessa foi comprida então (realize tal coisa) 
         .then(res => setFilmes(res.results)) // "res" é o resultado da função .then logo irá armazenar os dados de "data" em um array
         .catch( error => console.log(error)) //irá tratar o erro assim como "try catch" do java

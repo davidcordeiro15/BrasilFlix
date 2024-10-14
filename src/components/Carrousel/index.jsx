@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Carroussel({ movies }) {
+function Carroussel({ movies}) {
     const [cursor, setCursor] = useState(0);
 
 
@@ -30,9 +30,10 @@ function Carroussel({ movies }) {
                 >
                     {
                         movies.map((movie, index) => (
+                            
                             <div key={movie.id} className="w-full flex-shrink-0 flex justify-center items-center">
                                 <div className="flex-col">
-                                <h1 className="text-white text-center justify-center text-3xl mb-2">{movie.title}</h1>
+                                <h1 className="text-white text-center justify-center text-3xl mb-2">{movie.title}{movie.name}</h1>
                                 <img
                                     className="max-w-full max-h-full object-contain"
                                     src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}

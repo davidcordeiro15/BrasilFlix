@@ -4,6 +4,7 @@ import Carroussel from "../components/Carrousel";
 
 
 export default function Home(){
+    
     const [moviesPop, setMoviesPop] = useState([])
     const [seriesRated, setSeriesRated] = useState([])
     const [moviesTop, setMoviesTop] = useState([])
@@ -25,13 +26,6 @@ export default function Home(){
         .catch(error => console.log(error))
         .finally()
     }, [])
-    useEffect(() => {
-        fetch(apiAdressStart + 'movie/upcoming'+ apiAdressEnd)
-        .then(data => data.json())
-        .then(res => setSeriesTop(res.results))
-        .catch(error => console.log(error))
-        .finally()
-    }, [])
         useEffect(() => {
         fetch(apiAdressStart + 'movie/upcoming'+ apiAdressEnd)
         .then(data => data.json())
@@ -47,6 +41,7 @@ export default function Home(){
         .finally()
     }, [])
 
+                                    
     return(
         <>
             <div>

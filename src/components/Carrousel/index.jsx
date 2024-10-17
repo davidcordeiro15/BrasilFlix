@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 function Carroussel({ movies}) {
     const [cursor, setCursor] = useState(0);
-
+    
 
     const prev = () => {
         setCursor((cursor) => (cursor === 0 ? movies.length - 1 : cursor - 1));
@@ -29,16 +30,20 @@ function Carroussel({ movies}) {
                     }}
                 >
                     {
-                        movies.map((movie, index) => (
+                        movies.map((movie) => (
                             
                             <div key={movie.id} className="w-full flex-shrink-0 flex justify-center items-center">
                                 <div className="flex-col">
                                 <h1 className="text-white text-center justify-center text-3xl mb-2">{movie.title}{movie.name}</h1>
+                               
                                 <img
                                     className="max-w-full max-h-full object-contain"
                                     src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
                                     alt={"imagem do filme: " + movie.title}
-                                />
+                                    />
+                                
+                                <p>{movie.id}</p>
+                                <NavLink to={`/filmes/${movie.id}`} className="hover:text-gray-800">Saiba mais</NavLink>
                                 </div>
                             </div>
                         ))

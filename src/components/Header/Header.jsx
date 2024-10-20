@@ -22,7 +22,6 @@ export default function Header(){
                         <li className={classList}><NavLink to="/">Home</NavLink></li>
                         <li className={classList}><NavLink to="/filmes">Filmes</NavLink></li>
                         <li className={classList}><NavLink to="/generos">Gêneros</NavLink></li> 
-                        <li className={classList}><NavLink to="/contato">Contatos</NavLink></li> 
                         {isLogged && <li className={classList}><NavLink to="/settings">Configurações</NavLink></li>}
                         
                     </ul>

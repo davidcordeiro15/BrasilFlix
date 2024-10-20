@@ -36,14 +36,14 @@ function Carroussel({ movies}) {
                                 <div className="flex-col">
                                 <h1 className="text-white text-center justify-center text-3xl mb-2">{movie.title}{movie.name}</h1>
                                
-                                <img
-                                    className="max-w-full max-h-full object-contain"
+                                <Link to={`/filmes/${movie.id}`} ><img
+                                    className="max-w-full max-h-full object-contain "
                                     src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
                                     alt={"imagem do filme: " + movie.title}
-                                    />
+                                    /></Link>
                                 
                                 <p>{movie.id}</p>
-                                <NavLink to={`/filmes/${movie.id}`} className="hover:text-gray-800">Saiba mais</NavLink>
+                               
                                 </div>
                             </div>
                         ))
